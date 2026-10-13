@@ -1,0 +1,11 @@
+# Тема дашборда. Streamlit сам переключает светлую/тёмную по системным настройкам,
+# графики Plotly подстраиваются в коде (см. dashboard/_shared.py).
+[theme]
+primaryColor = "#3b82f6"
+font = "sans serif"
+
+[browser]
+gatherUsageStats = false
+
+[server]
+headless = true

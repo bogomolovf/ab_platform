@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+*.egg
+
+# Виртуальные окружения
+.venv/
+venv/
+env/
+
+# Кэши инструментов
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+
+# Jupyter
+notebooks/*.nbconvert.ipynb
+
+# Streamlit
+.streamlit/secrets.toml
+
+# ОС
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+
+# Синтетические датасеты - воспроизводятся детерминированно (`make data`),
+# поэтому в репозитории не хранятся.
+data/*.csv
+data/_cache/

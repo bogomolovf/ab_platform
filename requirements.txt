@@ -1,0 +1,20 @@
+# Ядро библиотеки
+numpy>=1.26
+scipy>=1.11
+statsmodels>=0.14
+pandas>=2.1
+
+# Дашборд
+streamlit>=1.30
+plotly>=5.18
+
+# Разработка и тесты
+pytest>=7.4
+ruff>=0.3
+black>=24.0
+pre-commit>=3.6
+
+# Ноутбук (методология) - опционально
+jupyter>=1.0
+matplotlib>=3.7
+nbconvert>=7.0

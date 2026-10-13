@@ -1,0 +1,69 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "abtest"
+version = "0.1.0"
+description = "Полноценная платформа для A/B-экспериментов: планирование, дизайн, анализ и интерпретация со статистически корректным ядром."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Fedor Bogomolov" }]
+keywords = ["ab-testing", "experimentation", "statistics", "cuped", "sequential-testing"]
+
+dependencies = [
+    "numpy>=1.26",
+    "scipy>=1.11",
+    "statsmodels>=0.14",
+    "pandas>=2.1",
+]
+
+[project.optional-dependencies]
+dashboard = [
+    "streamlit>=1.30",
+    "plotly>=5.18",
+]
+dev = [
+    "pytest>=7.4",
+    "ruff>=0.3",
+    "black>=24.0",
+    "pre-commit>=3.6",
+]
+notebooks = [
+    "jupyter>=1.0",
+    "matplotlib>=3.7",
+    "nbconvert>=7.0",
+]
+
+[project.scripts]
+abtest-simulate = "abtest.simulate:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+abtest = ["py.typed"]
+
+[tool.black]
+line-length = 100
+target-version = ["py311"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["src", "tests", "dashboard"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "C4", "SIM", "NPY"]
+# E501 - длину строк контролирует black; C408 - dict() идиоматичен для Plotly;
+# B905 - zip(strict=...) не нужен; B008 - вызовы в аргументах по умолчанию не используются.
+ignore = ["E501", "B905", "C408"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["abtest"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+filterwarnings = ["ignore::DeprecationWarning"]
